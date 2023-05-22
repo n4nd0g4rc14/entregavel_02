@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cálculo de MDC</title>
+</head>
+<body>
+  <h1>Cálculo MDC:</h1>
+
+  <label for="numero1">Digite o primeiro número:</label>
+  <input type="number" id="numero1"><br>
+
+  <br/>
+
+  <label for="numero2">Digite o segundo número:</label>
+  <input type="number" id="numero2"><br>
+
+  <br/>
+
+  <button onclick="calcularMDC()">Calcular</button>
+
+  <script>
+    function mdc(a, b) {
+      if (b === 0) {
+        return a;
+      } else {
+        return mdc(b, a % b);
+      }
+    }
+
+    function calcularMDC() {
+      var numero1 = parseInt(document.getElementById("numero1").value);
+      var numero2 = parseInt(document.getElementById("numero2").value);
+
+      let md = mdc(numero1, numero2);
+      alert("O MDC de " + numero1 + " e " + numero2 + " é: " + md + ".");
+    }
+  </script>
+</body>
+</html>

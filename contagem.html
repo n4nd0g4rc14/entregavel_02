@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verificar Valores Inteiros</title>
+</head>
+<body>
+  <h1>Verifica Inteiros:</h1>
+
+  <div id="console"></div>
+
+  <script>
+    const consoleElement = document.getElementById('console');
+    
+    function print(text) {
+      consoleElement.innerHTML += text + '<br>';
+    }
+
+    async function getInput(question) {
+      return new Promise((resolve) => {
+        const value = prompt(question);
+        resolve(value);
+      });
+    }
+
+    async function start() {
+      const n = parseInt(await getInput('Digite o tamanho do conjunto:'));
+      const conjunto = [];
+      for (let i = 0; i < n; i++) {
+        const value = parseFloat(await getInput(`Digite o valor ${i + 1}:`));
+        conjunto.push(value);
+      }
+
+      let count = 0;
+      for (const value of conjunto) {
+        if (Number.isInteger(value)) {
+          count++;
+        }
+      }
+      print(`O conjunto possui ${count} valores inteiros.`);
+    }
+
+    start();
+  </script>
+</body>
+</html>

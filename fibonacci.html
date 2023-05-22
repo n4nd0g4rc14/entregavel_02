@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Número na sequência Fibonacci</title>
+</head>
+<body>
+  <h1>Fibonacci:</h1>
+
+  <label for="numero">Digite um número:</label>
+  <input type="number" id="numero">
+  <button onclick="calcularFibonacci()">Calcular</button>
+
+  <script>
+    function fibonacci(n) {
+      if (n <= 1) {
+        return n;
+      } else {
+        return fibonacci(n - 1) + fibonacci(n - 2);
+      }
+    }
+
+    function calcularFibonacci() {
+      var numero = document.getElementById("numero").value;
+      const fib = fibonacci(parseInt(numero));
+      alert(`O ${numero} na Fibonacci é: ${fib}`);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Soma de Números</title>
+</head>
+<body>
+  <h1>Soma de Números:</h1>
+
+  <label for="quantidade">Quantos serão somados?</label>
+  <input type="number" id="quantidade">
+  <button onclick="calcularSoma()">Calcular</button>
+
+  <script>
+    function calcularSoma() {
+      var quantidade = document.getElementById("quantidade").value;
+      recursiveQuestion(parseInt(quantidade), 0, 1);
+    }
+
+    function recursiveQuestion(n, sum, p) {
+      if (p > n) {
+        alert("A soma dos " + n + " números é igual a: " + sum);
+      } else {
+        var number = prompt("Digite o número " + p + ":");
+        sum += Number(number);
+        recursiveQuestion(n, sum, p + 1);
+      }
+    }
+  </script>
+</body>
+</html>
